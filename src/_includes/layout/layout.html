@@ -3,8 +3,12 @@ layout: layout/base
 ---
 <header></header>
 <main>
-    {{ content }}
+    <div class="max-width-3 mx-auto">
+        <div class="clearfix">
+            {{ content }}
+        </div>
+    </div>
 </main>
 <footer>
-    &copy; {{ pkg.name }} - {{ page.date | date: '%Y' }}
+    <p class="center">&copy; {{ pkg.name }} - {{ page.date | date: '%Y' }}</p>
 </footer>

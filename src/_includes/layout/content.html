@@ -2,9 +2,18 @@
 layout: layout/layout
 ---
 <article>
-    <h1>{{ title }}</h1>
-    <time datetime="{{ page.date }}">{{ page.date }}</time>
-    <div id="content">
-        {{ content }}
-    </div>
+    <section>
+        <div id="contentHeader" class="pt2">
+            <h1 class="center my3 mx2">{{ title }}</h1>
+            <amp-img id="contentHeaderImage" src="{{ image }}" height="3" width="4" layout="responsive"></amp-img>
+            <div id="contentInfobox" class="mt2 mx2 pl2 border--olive gray">
+                <time datetime="{{ date }}" class="block">{{ date | dateReadable }}</time>
+                <p class="m0 block">Oleh: <a href="{{ author_url }}"><b>{{ author }}</b></a></p>
+                <a href="{{ origin }}" class="block">Link tulisan asli</a>
+            </div>
+        </div>
+        <div id="contentBody" class="mx2">
+            {{ content }}
+        </div>
+    </section>
 </article>
