@@ -1,6 +1,6 @@
 ---
 title: PP KAMMI
-layout: layout/page
+layout: layout/contentlist
 pagination:
     data: collections.ppkammi
     size: 10

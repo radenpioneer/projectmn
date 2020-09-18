@@ -7,4 +7,6 @@ Halaman:
 
 [PP KAMMI](/berita/ppkammi/)
 
+[Video](/video/)
+
 [JSON Test](/testJsonOutput.json)

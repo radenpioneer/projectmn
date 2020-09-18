@@ -4,6 +4,6 @@ exports.data = {
 }
 
 exports.render = (data) => {
-    const items = data.content.ppkammi
+    const items = data.video.kammitv
     return JSON.stringify(items, null, 2)
 }

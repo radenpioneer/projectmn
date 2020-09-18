@@ -4,7 +4,7 @@ layout: layout/layout
 <article>
     <section>
         <div id="contentHeader" class="pt2">
-            <p class="left-align gray mx2 mt3 mb0"><time datetime="{{ date }}">{{ date | dateReadable | upcase }}</time></p>
+            <p class="left-align gray mx2 mt3 mb0"><time datetime="{{ publishDate }}">{{ publishDate | dateReadable | upcase }}</time></p>
             <h1 class="left-align mt2 mb0 mx2">{{ title }}</h1>
             <h2 class="mx2 mt2 mb0 h4 olive"><a href="{{ author_url }}">{{ author | upcase }}</a></h2>
             <p class="mx2 mt0 mb3 gray"><a href="{{ origin }}"><small>{{ "Link tulisan asli" | upcase }}</small></a></p>

@@ -1,0 +1,23 @@
+---
+layout: layout/layout
+---
+{% include partials/component/postcarousel.html %}
+
+<!--Post List-->
+<div class="col col-12 lg-col-8">
+    <div class="mt3 mb2 mx1">
+        <h1 class="h3 m0">{{ "Terbaru Dari " | append: title }}</h1>
+    </div>
+    {% if pagination.pageNumber == 0 %}
+    {% for post in posts offset:5 %}
+        {% include partials/component/videobox.html %}
+    {% endfor %}
+    {% else %}
+    {% for post in posts %}
+        {% include partials/component/videobox.html %}
+    {% endfor %}
+    {% endif %}
+</div>
+
+<!--Sidebar-->
+<div class="col xs-hide sm-hide md-hide lg-col-4"></div>

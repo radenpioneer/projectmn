@@ -54,3 +54,13 @@ img {
         }
     }
 }
+
+#videoboxTitle {
+    bottom: 0;
+    left: 0;
+    line-height: 2.25rem;
+    span {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+}

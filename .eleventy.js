@@ -11,6 +11,14 @@ module.exports = function(eleventyConfig) {
         },
         validation: false
     })
+    /*
+    eleventyConfig.addCollection('ppkammi', function(collection) {
+        return collection.getFilteredByTag('ppkammi')
+                .sort(function(a, b) {
+                    return b.data.publishDate - a.data.publishDate
+                })
+    })
+    */
     return {
         dir: {
             input: 'src',

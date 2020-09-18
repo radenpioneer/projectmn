@@ -1,12 +1,11 @@
-const fetch = require('node-fetch')
+const Cache = require('@11ty/eleventy-cache-assets')
 
-const SRC = 'http://www.kammi.id/wp-json/wp/v2/posts?per_page=50&_embed'
+const SRC = 'http://www.kammi.id/wp-json/wp/v2/posts?per_page=80&_embed'
 
-module.exports = function() {
-    return new Promise((resolve, reject) => {
-        fetch(SRC)
-          .then(response => response.json())
-          .then(data => resolve(data))
-          .catch(e => reject(e))
+module.exports = async function() {
+    let data = await Cache(SRC, {
+        duration: '1d',
+        type: 'json'
     })
+    return data
 }

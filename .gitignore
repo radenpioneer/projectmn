@@ -20,5 +20,8 @@ dist
 # Local Netlify folder
 .netlify
 
+#.env
+.env
+
 #debug.log
 debug.log
