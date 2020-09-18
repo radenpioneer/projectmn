@@ -4,13 +4,13 @@ layout: layout/layout
 <article>
     <section>
         <div id="contentHeader" class="pt2">
-            <h1 class="center my3 mx2">{{ title }}</h1>
+            <p class="left-align gray mx2 mt3 mb0"><time datetime="{{ date }}">{{ date | dateReadable | upcase }}</time></p>
+            <h1 class="left-align mt2 mb0 mx2">{{ title }}</h1>
+            <h2 class="mx2 mt2 mb0 h4 olive"><a href="{{ author_url }}">{{ author | upcase }}</a></h2>
+            <p class="mx2 mt0 mb3 gray"><a href="{{ origin }}"><small>{{ "Link tulisan asli" | upcase }}</small></a></p>
+            {% if image != "false" %}
             <amp-img id="contentHeaderImage" src="{{ image }}" height="3" width="4" layout="responsive"></amp-img>
-            <div id="contentInfobox" class="mt2 mx2 pl2 border--olive gray">
-                <time datetime="{{ date }}" class="block">{{ date | dateReadable }}</time>
-                <p class="m0 block">Oleh: <a href="{{ author_url }}"><b>{{ author }}</b></a></p>
-                <a href="{{ origin }}" class="block">Link tulisan asli</a>
-            </div>
+            {% endif %}
         </div>
         <div id="contentBody" class="mx2">
             {{ content }}

@@ -2,7 +2,7 @@
 layout: layout/base
 ---
 <header></header>
-<main>
+<main class="flex-auto">
     <div class="max-width-3 mx-auto">
         <div class="clearfix">
             {{ content }}
@@ -10,5 +10,5 @@ layout: layout/base
     </div>
 </main>
 <footer>
-    <p class="center">&copy; {{ pkg.name }} - {{ page.date | date: '%Y' }}</p>
+    <p class="center gray">&copy; {{ pkg.name }} - {{ page.date | date: '%Y' }}</p>
 </footer>

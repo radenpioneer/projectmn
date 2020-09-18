@@ -14,6 +14,7 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: var(--system-font);
 }
 
@@ -23,30 +24,12 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
-#contentHeaderImage {
-    img {
-        object-fit: cover;
-        object-position: center center;
-    }
-}
-
-#contentInfobox {
-    font-family: var(--heading-font);
-    border-left-width: 3px;
-    border-left-style: solid;
-    text-transform: uppercase;
-    font-size: 90%;
-    line-height: 1.25rem;
-    * {
-        color: inherit;
-    }
-    a {
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+img {
+    object-fit: cover;
+    object-position: center center;
 }
 
 #contentBody {
@@ -57,5 +40,17 @@ a {
     }
     a {
         text-decoration: underline;
+    }
+}
+
+#post-carousel {
+    h1 {
+        bottom: 0;
+        left: 0;
+        line-height: 2.25rem;
+        >span {
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
     }
 }

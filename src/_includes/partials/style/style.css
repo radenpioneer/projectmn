@@ -1076,6 +1076,7 @@ template {
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--system-font);
 }
 
@@ -1085,28 +1086,14 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
-#contentHeaderImage img {
+img {
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
-}
-
-#contentInfobox {
-  font-family: var(--heading-font);
-  border-left-width: 3px;
-  border-left-style: solid;
-  text-transform: uppercase;
-  font-size: 90%;
-  line-height: 1.25rem;
-}
-#contentInfobox * {
-  color: inherit;
-}
-#contentInfobox a:hover {
-  text-decoration: underline;
 }
 
 #contentBody {
@@ -1118,4 +1105,14 @@ a {
 }
 #contentBody a {
   text-decoration: underline;
+}
+
+#post-carousel h1 {
+  bottom: 0;
+  left: 0;
+  line-height: 2.25rem;
+}
+#post-carousel h1 > span {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }

@@ -1,8 +1,44 @@
 ---
 layout: layout/layout
 ---
-{% for post in posts %}
-<div class="col col-12 lg-col-6">
-    <h1><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+<!--First Page Content Carousel-->
+{% if pagination.pageNumber == 0 %}
+<div class="col col-12">
+    <amp-carousel
+    id="post-carousel"
+    width="4"
+    height="3"
+    layout="responsive"
+    role="region"
+    type="slides"
+    loop>
+      {% for post in posts limit:5 %}
+          <div class="relative">
+              <a href="{{ post.url }}">
+                  <amp-img src="{{ post.data.image }}" layout="fill"></amp-img>
+              </a>
+              <h1 class="absolute mx2 mt0 mb1 h2 p1"><span class="white bg-olive p1 inline">{{ post.data.title }}</span></h1>
+          </div>
+      {% endfor %}
+  </amp-carousel>
 </div>
-{% endfor %}
+{% endif %}
+
+<!--Post List-->
+<div class="col col-12 lg-col-8">
+    <div class="mt3 mb2 mx1">
+        <h1 class="h3 m0">{{ "Terbaru Dari " | append: title }}</h1>
+    </div>
+    {% if pagination.pageNumber == 0 %}
+    {% for post in posts offset:5 %}
+        {% include partials/component/postbox.html %}
+    {% endfor %}
+    {% else %}
+    {% for post in posts %}
+        {% include partials/component/postbox.html %}
+    {% endfor %}
+    {% endif %}
+</div>
+
+<!--Sidebar-->
+<div class="col xs-hide sm-hide md-hide lg-col-4"></div>

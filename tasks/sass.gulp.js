@@ -13,7 +13,7 @@ const autoprefixer = require('autoprefixer')
 const importcss = require('postcss-import-url')
 
 const SRC = './src/_sass/style.scss'
-const DEST = './src/_includes/partials/'
+const DEST = './src/_includes/partials/style/'
 const WATCH = './src/_sass/*.scss'
 
 gulp.task('generatecss', function() {

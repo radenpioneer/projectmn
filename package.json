@@ -7,7 +7,8 @@
     "start": "npx gulp serve",
     "build": "npx gulp build",
     "clean": "npx gulp clean",
-    "prestart": "npm run clean"
+    "prestart": "npm run clean",
+    "debug": "DEBUG=* npm run build 2>&1 | tee debug.log"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@11ty/eleventy": "^0.11.0",
     "@ampproject/eleventy-plugin-amp": "^0.5.3",
     "autoprefixer": "^9.8.6",
+    "cheerio": "^1.0.0-rc.3",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.2",
