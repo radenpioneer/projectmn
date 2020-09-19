@@ -1,6 +1,6 @@
 ---
 pagination:
-    data: video.kammitv.items
+    data: video.jayanesia2045.items
     size: 1
     alias: post
     addAllPagesToCollections: true
@@ -13,5 +13,5 @@ eleventyComputed:
     image: "{{ post.snippet.thumbnails.high.url }}"
     origin: "{{ post.id.videoId | prepend: 'https://www.youtube.com/watch?v=' }}"
     videoId: "{{ post.id.videoId }}"
-permalink: "/video/kammitv/{{ post.id.videoId }}.html"
+permalink: "/video/jayanesia2045/{{ post.id.videoId }}.html"
 ---

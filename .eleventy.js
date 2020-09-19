@@ -19,6 +19,12 @@ module.exports = function(eleventyConfig) {
                 })
     })
     */
+   eleventyConfig.addCollection('video', function(collection) {
+    return collection.getFilteredByTag('video')
+            .sort(function(a, b) {
+                return b.data.publishDate - a.data.publishDate
+            })
+    })
     return {
         dir: {
             input: 'src',
