@@ -12,7 +12,7 @@
     {% else %}
     <div class="col col-12 p1">
         <h1 class="h2 mt0 mb1 white"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-        <p class="m0 white"><small><time datetime="{{ post.data.date }}">{{ post.data.date | dateReadable }}</time></small></p>
+        <p class="m0 white"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
     </div>
     {% endif %}
 </div>

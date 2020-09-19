@@ -11,16 +11,20 @@ module.exports = function(eleventyConfig) {
         },
         validation: false
     })
-    /*
     eleventyConfig.addCollection('ppkammi', function(collection) {
         return collection.getFilteredByTag('ppkammi')
-                .sort(function(a, b) {
-                    return b.data.publishDate - a.data.publishDate
-                })
+            .sort(function(a, b) {
+                return b.data.publishDate - a.data.publishDate
+            })
     })
-    */
-   eleventyConfig.addCollection('video', function(collection) {
-    return collection.getFilteredByTag('video')
+    eleventyConfig.addCollection('nusantara', function(collection) {
+        return collection.getFilteredByTag('nusantara')
+            .sort(function(a, b) {
+                return b.data.publishDate - a.data.publishDate
+            })
+    })
+    eleventyConfig.addCollection('video', function(collection) {
+        return collection.getFilteredByTag('video')
             .sort(function(a, b) {
                 return b.data.publishDate - a.data.publishDate
             })

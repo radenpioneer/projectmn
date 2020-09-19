@@ -1,0 +1,11 @@
+const Cache = require('@11ty/eleventy-cache-assets')
+
+const SRC = 'https://kammijabar.com/wp-json/wp/v2/posts?per_page=10&_embed'
+
+module.exports = async function() {
+    let data = await Cache(SRC, {
+        duration: '1d',
+        type: 'json'
+    })
+    return data
+}

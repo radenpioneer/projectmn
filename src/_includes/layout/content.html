@@ -6,8 +6,8 @@ layout: layout/layout
         <div id="contentHeader" class="pt2">
             <p class="left-align gray mx2 mt3 mb0"><time datetime="{{ publishDate }}">{{ publishDate | dateReadable | upcase }}</time></p>
             <h1 class="left-align mt2 mb0 mx2">{{ title }}</h1>
-            <h2 class="mx2 mt2 mb0 h4 olive"><a href="{{ author_url }}">{{ author | upcase }}</a></h2>
-            <p class="mx2 mt0 mb3 gray"><a href="{{ origin }}"><small>{{ "Link tulisan asli" | upcase }}</small></a></p>
+            <h2 class="mx2 mt2 mb0 h4 olive"><a href="{{ author.url }}" target="_blank" rel="nofollow">{{ author.name | upcase }}</a></h2>
+            <p class="mx2 mt0 mb3 gray"><a href="{{ origin }}" target="_blank" rel="nofollow"><small>{{ "Link tulisan asli" | upcase }}</small></a></p>
             {% if image != "false" %}
             <amp-img id="contentHeaderImage" src="{{ image }}" height="3" width="4" layout="responsive"></amp-img>
             {% endif %}

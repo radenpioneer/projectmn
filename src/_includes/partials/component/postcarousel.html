@@ -14,7 +14,7 @@
               <a href="{{ post.url }}">
                   <amp-img src="{{ post.data.image }}" layout="fill"></amp-img>
               </a>
-              <h1 class="absolute mx2 mt0 mb1 h2 p1"><span class="white bg-olive p1 inline">{{ post.data.title }}</span></h1>
+              <h1 class="absolute mx2 mt0 mb1 h2 p1"><a class="white bg-olive p1 inline" href="{{ post.url }}">{{ post.data.title }}</a></h1>
           </div>
       {% endfor %}
   </amp-carousel>
