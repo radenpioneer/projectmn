@@ -2,22 +2,22 @@
 layout: layout/content
 tags:
     - berita
-    - nusantara
-    - jatim
+    - pusat
 pagination:
-    data: content.pwjatim
+    data: content.pusat
     size: 1
     alias: post
     addAllPagesToCollections: true
 eleventyComputed:
     title: "{{ post.title.rendered }}"
+    date: "{{ post.date }}"
     publishDate: "{{ post.date }}"
     author:
-        name: "{{ 'KAMMI JATIM' }}"
+        name: "{{ 'PP KAMMI' }}"
         url: "{{ post._embedded.author[0].url }}"
     image: "{% if post.featured_media != 0 %}{{ post._embedded['wp:featuredmedia'][0].source_url }}{% else %}{{ false }}{% endif %}"
-    excerpt: "{{ post.excerpt.rendered | remove: '[&hellip;]' }}"
+    excerpt: "{{ post.excerpt.rendered | remove: '[&hellip;]' | strip_html }}"
     origin: "{{ post.link }}"
-permalink: "/berita/nusantara/jatim/{{ post.date | date: '%Y/%m' }}/{{ post.slug }}.html"
+permalink: "/berita/pusat/{{ post.date | date: '%Y/%m' }}/{{ post.slug | truncate: 100, '' }}.html"
 ---
 {{ post.content.rendered | replaceImgWithAmp }}

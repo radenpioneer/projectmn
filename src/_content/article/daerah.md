@@ -2,10 +2,9 @@
 layout: layout/content
 tags:
     - berita
-    - nusantara
-    - kaltim
+    - daerah
 pagination:
-    data: content.pwkaltim
+    data: content.daerah
     size: 1
     alias: post
     addAllPagesToCollections: true
@@ -13,11 +12,11 @@ eleventyComputed:
     title: "{{ post.title.rendered }}"
     publishDate: "{{ post.date }}"
     author:
-        name: "{{ 'KAMMI KALTIM KALTARA' }}"
+        name: "{{ post._embedded.author[0].url | remove: 'http://' }}"
         url: "{{ post._embedded.author[0].url }}"
     image: "{% if post.featured_media != 0 %}{{ post._embedded['wp:featuredmedia'][0].source_url }}{% else %}{{ false }}{% endif %}"
-    excerpt: "{{ post.excerpt.rendered | remove: '[&hellip;]' }}"
+    excerpt: "{{ post.excerpt.rendered | remove: '[&hellip;]' | strip_html }}"
     origin: "{{ post.link }}"
-permalink: "/berita/nusantara/kaltimtara/{{ post.date | date: '%Y/%m' }}/{{ post.slug }}.html"
+permalink: "/berita/daerah/{{ post.date | date: '%Y/%m' }}/{{ post.slug | truncate: 100, '' }}.html"
 ---
 {{ post.content.rendered | replaceImgWithAmp }}

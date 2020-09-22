@@ -5,9 +5,9 @@ permalink: index.html
 
 Halaman:
 
-[PP KAMMI](/berita/ppkammi/)
+[PP KAMMI](/berita/pusat/)
 
-[KAMMI se-Indonesia](/berita/nusantara/)
+[KAMMI se-Indonesia](/berita/daerah/)
 
 [Video](/video/)
 
