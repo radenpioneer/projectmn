@@ -1,0 +1,49 @@
+---
+layout: layout/layout
+---
+<div class="clearfix mxn2 mt2">
+    <div class="col col-12 md-col-6 lg-col-4 px2 mb2">
+        {% for post in collections.berita limit:1 %}
+        {% if post.data.image != "false" %}
+        <article class="mb2 mx2">
+            <a href="{{ post.url }}">
+                <amp-img src="{{ post.data.image }}" layout="fixed-height" height="150px"></amp-img>
+            </a>
+            <h1 class="h3 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+            <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
+            <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+        </article>
+        {% else %}
+        <article class="mb2 mx2">
+            <h1 class="mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+            <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
+            <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="col col-12 md-col-6 lg-col-4 px2 mb2">
+        {% for post in collections.berita offset:1 limit:3 %}
+        <article class="flex content-stretch mb2 mx2" style="min-height: 80px;">
+            {% if post.data.image != "false" %}
+            <div class="col col-3">
+                <a href="{{ post.url }}"><amp-img src="{{ post.data.image }}" layout="responsive" height="80px" width="80px"></amp-img></a>
+            </div>
+            {% endif %}
+            <div class="col {% if post.data.image != 'false' %}col-9{% else %}col-12{% endif %}">
+                <div class="flex flex-column justify-between ml2" style="height:100%">
+                    <h1 class="{% if post.data.image != 'false' %}h4{% else %}h3{% endif %} mt1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+                    <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <div class="col col-12 lg-col-4 px2 mb2">
+        <article class="mb2 mx2">
+            <amp-youtube data-videoid="3e-jU-ZEfl8" layout="responsive" width="480" height="270" loop></amp-youtube>
+            <h1 class="h3 mb1">Odading Mang Oleh</h1>
+            <p class="gray"><i>Rasanya, seperti Anda menjadi Iron Man... Anj*ng banget.</i></p>
+        </article>
+    </div>
+</div>

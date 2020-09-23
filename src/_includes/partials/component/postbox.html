@@ -1,18 +1,18 @@
-{% if post.data.image != "false" %}
-<div class="clearfix m1 border border--olive rounded">
-{% else %}
-<div class="clearfix m1 bg-olive rounded">
-{% endif %}
+<article class="col col-12 mb2">
     {% if post.data.image != "false" %}
-    <div class="col col-8 p1">
-        <h1 class="h4 mt0 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-        <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+    <div class="col col-8 px2">
+        <h1 class="mt1 h3"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+        <p class="gray">{{ post.data.excerpt | truncatewords: 10 }}</p>
+        <p class="gray m0"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
     </div>
-    <div class="col col-4 p1"><amp-img src="{{ post.data.image }}" width="100" height="100" layout="responsive"></amp-img></div>
+    <div class="col col-4 px2">
+        <a href="{{ post.url }}"><amp-img class="right" src="{{ post.data.image }}" layout="intrinsic" height="150px" width="150px"></amp-img></a>
+    </div>
     {% else %}
-    <div class="col col-12 p1">
-        <h1 class="h2 mt0 mb1 white"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-        <p class="m0 white"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+    <div class="col col-12 px2">
+        <h1 class="mt1 h3"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+        <p class="gray">{{ post.data.excerpt | truncatewords: 10 }}</p>
+        <p class="gray m0"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
     </div>
     {% endif %}
-</div>
+</article>

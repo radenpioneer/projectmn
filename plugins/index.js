@@ -5,4 +5,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter(
         'replaceImgwithAmp', require('./replaceImgWithAmp')
     )
+    eleventyConfig.addFilter(
+        'sanitizeContent', require('./sanitizeContent')
+    )
 }

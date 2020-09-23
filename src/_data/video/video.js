@@ -12,8 +12,7 @@ const SRC = [
 
 async function getContent(id) {
     let amount = 10
-    let dateLimit = encodeURIComponent(luxon.DateTime.local().minus({months: 6}).toISO())
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${id}&maxResults=${amount}&publishedAfter=${dateLimit}&order=date&type=video&key=${API_KEY}`
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${id}&maxResults=${amount}&order=date&type=video&key=${API_KEY}`
     let data = await Cache(url, {
         duration: '3d',
         type: 'json'

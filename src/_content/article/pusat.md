@@ -20,4 +20,4 @@ eleventyComputed:
     origin: "{{ post.link }}"
 permalink: "/berita/pusat/{{ post.date | date: '%Y/%m' }}/{{ post.slug | truncate: 100, '' }}.html"
 ---
-{{ post.content.rendered | replaceImgWithAmp }}
+{{ post.content.rendered }}

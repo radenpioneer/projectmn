@@ -1,0 +1,47 @@
+---
+layout: layout/layout
+---
+<div class="clearfix mt2">
+    <div class="col col-12 mb3">
+        <div class="px2">
+            <h1 class="m0">{{ title }}</h1>
+            <p class="mt1 mb0">{{ content | strip_html }}</p>
+        </div>
+    </div>
+</div>
+<div class="clearfix mxn2 mt2">
+    <div class="col col-12 lg-col-8 px2 mb3">
+        {% if pagination.pageNumber == 0 %}
+        {% for post in posts limit:1 %}
+        <article class="col col-12 mb3">
+            {% if post.data.image != "false" %}
+            <a href="{{ post.url }}">
+                <amp-img src="{{ post.data.image }}" layout="fixed-height" height="350px"></amp-img>
+            </a>
+            {% endif %}
+            <h1 class="px2 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+            <p class="gray px2 my1">{{ post.data.excerpt | truncatewords: 50 }}</p>
+            <p class="gray px2 m0"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+        </article>
+        <div class="mb2">
+            <p class="h3 bold olive mt0 mb0 px2">Terbaru</p>
+            <hr class="mx2" style="border: 1px solid #3D9970;">
+        </div>
+        {% endfor %}
+        {% for post in posts offset:1 %}
+            {% include partials/component/postbox.html %}
+        {% endfor %}
+        {% else %}
+        {% for post in posts %}
+            {% include partials/component/postbox.html %}
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col col-12 lg-col-4 px2">
+        <article class="mb2 mx2">
+            <amp-youtube data-videoid="3e-jU-ZEfl8" layout="responsive" width="480" height="270" loop></amp-youtube>
+            <h1 class="h3 mb1">Odading Mang Oleh</h1>
+            <p class="gray"><i>Rasanya, seperti Anda menjadi Iron Man... Anj*nk banget.</i></p>
+        </article>
+    </div>
+</div>

@@ -1,14 +1,4 @@
 ---
-layout: layout/layout
+layout: layout/home
 permalink: index.html
 ---
-
-Halaman:
-
-[PP KAMMI](/berita/pusat/)
-
-[KAMMI se-Indonesia](/berita/daerah/)
-
-[Video](/video/)
-
-[JSON Test](/testJsonOutput.json)

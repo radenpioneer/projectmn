@@ -1,4 +1,5 @@
 const ampgen = require('@ampproject/eleventy-plugin-amp')
+const typeset = require('eleventy-plugin-typeset')
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(require('./plugins'))
@@ -11,14 +12,14 @@ module.exports = function(eleventyConfig) {
         },
         validation: false
     })
-    eleventyConfig.addCollection('ppkammi', function(collection) {
-        return collection.getFilteredByTag('ppkammi')
+    eleventyConfig.addCollection('pusat', function(collection) {
+        return collection.getFilteredByTag('pusat')
             .sort(function(a, b) {
                 return b.data.publishDate - a.data.publishDate
             })
     })
-    eleventyConfig.addCollection('nusantara', function(collection) {
-        return collection.getFilteredByTag('nusantara')
+    eleventyConfig.addCollection('daerah', function(collection) {
+        return collection.getFilteredByTag('daerah')
             .sort(function(a, b) {
                 return b.data.publishDate - a.data.publishDate
             })
@@ -29,6 +30,9 @@ module.exports = function(eleventyConfig) {
                 return b.data.publishDate - a.data.publishDate
             })
     })
+    eleventyConfig.addPlugin(typeset({
+        disable: ['ligatures', 'hyphenate']
+    }))
     return {
         dir: {
             input: 'src',
