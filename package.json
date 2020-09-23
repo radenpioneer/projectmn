@@ -7,6 +7,7 @@
     "start": "npx gulp serve",
     "build": "npx gulp build",
     "clean": "npx gulp clean",
+    "clean:cache": "npx gulp clean:cache",
     "prestart": "npm run clean",
     "debug": "DEBUG=* npm run build 2>&1 | tee debug.log"
   },
