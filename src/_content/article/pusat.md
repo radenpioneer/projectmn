@@ -18,6 +18,6 @@ eleventyComputed:
     image: "{% if post.featured_media != 0 %}{{ post._embedded['wp:featuredmedia'][0].source_url }}{% else %}{{ false }}{% endif %}"
     excerpt: "{{ post.excerpt.rendered | remove: '[&hellip;]' | strip_html }}"
     origin: "{{ post.link }}"
-permalink: "/berita/pusat/{{ post.date | date: '%Y/%m' }}/{{ post.slug | truncate: 100, '' }}.html"
+permalink: "/berita/pusat/{{ post.date | date: '%Y/%m' }}/{{ post._embedded.author[0].url | remove: 'https:' | remove: 'http:' | replace: '.', '-' | slug }}-{{ post.slug | truncate: 100, '' }}.html"
 ---
 {{ post.content.rendered }}

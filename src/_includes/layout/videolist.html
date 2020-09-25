@@ -1,22 +1,21 @@
 ---
 layout: layout/layout
 ---
-{% include partials/component/postcarousel.html %}
-
-<!--Post List-->
-<div class="col col-12 lg-col-8">
-    <div class="mt3 mb2 mx1">
-        <h1 class="h3 m0">{{ "Terbaru Dari " | append: title }}</h1>
+<div class="clearfix mt2">
+    <div class="col col-12 mb3">
+        <div class="px2">
+            <h1 class="m0">{{ title }}</h1>
+            <p class="mt1 mb0">{{ content | strip_html }}</p>
+        </div>
     </div>
-    {% if pagination.pageNumber == 0 %}
-    {% for post in posts offset:5 %}
-        {% include partials/component/videobox.html %}
-    {% endfor %}
-    {% else %}
-    {% for post in posts %}
-        {% include partials/component/videobox.html %}
-    {% endfor %}
-    {% endif %}
+</div>
+<!--Post List-->
+<div class="clearfix mt2 mx1">
+    <div class="col col-12 lg-col-8">
+        {% for post in posts %}
+            {% include partials/component/videobox.html %}
+        {% endfor %}
+    </div>
 </div>
 
 <!--Sidebar-->

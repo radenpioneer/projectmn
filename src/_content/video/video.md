@@ -1,6 +1,6 @@
 ---
 pagination:
-    data: video.video
+    data: video
     size: 1
     alias: contentData
     addAllPagesToCollections: true
@@ -15,3 +15,4 @@ eleventyComputed:
     videoId: "{{ contentData.id.videoId }}"
 permalink: "/video/{{ contentData.snippet.channelTitle | slug }}/{{ contentData.id.videoId }}.html"
 ---
+{{ contentData.snippet.description }}

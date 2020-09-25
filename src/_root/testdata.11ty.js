@@ -4,6 +4,6 @@ exports.data = {
 }
 
 exports.render = (data) => {
-    const items = data.content.daerah
+    const items = data.video
     return JSON.stringify(items, null, 2)
 }

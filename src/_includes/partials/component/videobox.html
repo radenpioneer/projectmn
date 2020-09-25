@@ -1,12 +1,12 @@
 
-<div class="clearfix m1 rounded">
-    <div class="col col-12 relative">
-        <a href="{{ post.url }}">
-            <amp-img src="{{ post.data.image }}" width="16" height="9" layout="responsive"></amp-img>
-            <div id="videoboxTitle" class="absolute p2">
-                <h1 class="h4 mt0 mb1"><span class="bg-white p1 inline">{{ post.data.title }}</span></h1>
-                <p class="m0 gray white bold"><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable | upcase }}</small></p>
-            </div>
-        </a>
+<div class="clearfix mxn1 mb1">
+    <div class="col col-6 md-col-4 lg-col-3 px1">
+        <a href="{{ post.url }}"><amp-img src="{{ post.data.image }}" layout="responsive" width="16" height="9" class="rounded"></amp-img></a>
+    </div>
+    <div class="col col-6 md-col-8 lg-col-9 px1">
+        <div class="flex flex-column justify-between">
+            <h1 class="h4 mt0"><a href="{{ post.url }}">{{ post.data.title | truncate: 60 }}</a></h1>
+            <p class="h5 mt1 mb0 olive bold"><a href="{{ post.data.author.url }}">{{ post.data.author.name }}</a></p>
+        </div>
     </div>
 </div>

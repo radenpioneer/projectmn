@@ -1,49 +1,119 @@
 ---
 layout: layout/layout
 ---
-<div class="clearfix mxn2 mt2">
-    <div class="col col-12 md-col-6 lg-col-4 px2 mb2">
-        {% for post in collections.berita limit:1 %}
-        {% if post.data.image != "false" %}
-        <article class="mb2 mx2">
-            <a href="{{ post.url }}">
-                <amp-img src="{{ post.data.image }}" layout="fixed-height" height="150px"></amp-img>
-            </a>
-            <h1 class="h3 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-            <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
-            <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
-        </article>
-        {% else %}
-        <article class="mb2 mx2">
-            <h1 class="mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-            <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
-            <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
-        </article>
-        {% endif %}
-        {% endfor %}
-    </div>
-    <div class="col col-12 md-col-6 lg-col-4 px2 mb2">
-        {% for post in collections.berita offset:1 limit:3 %}
-        <article class="flex content-stretch mb2 mx2" style="min-height: 80px;">
+<!--Featured Section-->
+<div class="clearfix mxn1 mt2">
+    <div class="col col-12 sm-col-8 mxn1 px1 mb2">
+        <div class="col col-12 lg-col-6 px1 mb2">
+            {% for post in collections.berita limit:1 %}
             {% if post.data.image != "false" %}
-            <div class="col col-3">
-                <a href="{{ post.url }}"><amp-img src="{{ post.data.image }}" layout="responsive" height="80px" width="80px"></amp-img></a>
-            </div>
+            <article class="mb2 mx2">
+                <a href="{{ post.url }}">
+                    <amp-img src="{{ post.data.image }}" layout="fixed-height" height="170px"></amp-img>
+                </a>
+                <h1 class="h3 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+                <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
+                <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+            </article>
+            {% else %}
+            <article class="mb2 mx2">
+                <h1 class="mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+                <p class="gray">{{ post.data.excerpt | truncatewords: 25 }}</p>
+                <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+            </article>
             {% endif %}
-            <div class="col {% if post.data.image != 'false' %}col-9{% else %}col-12{% endif %}">
-                <div class="flex flex-column justify-between ml2" style="height:100%">
-                    <h1 class="{% if post.data.image != 'false' %}h4{% else %}h3{% endif %} mt1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
-                    <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+            {% endfor %}
+        </div>
+        <div class="col col-12 lg-col-6 px1 mb2">
+            {% for post in collections.berita offset:1 limit:3 %}
+            <article class="flex content-stretch mb2 mx2" style="min-height: 80px;">
+                {% if post.data.image != "false" %}
+                <div class="col col-3">
+                    <a href="{{ post.url }}"><amp-img src="{{ post.data.image }}" layout="responsive" height="80px" width="80px"></amp-img></a>
                 </div>
-            </div>
+                {% endif %}
+                <div class="col {% if post.data.image != 'false' %}col-9{% else %}col-12{% endif %}">
+                    <div class="flex flex-column justify-between ml2" style="height:100%">
+                        <h1 class="{% if post.data.image != 'false' %}h4{% else %}h3{% endif %} mt1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+                        <p class="m0 gray"><small><time datetime="{{ post.data.publishDate }}">{{ post.data.publishDate | dateReadable }}</time></small></p>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col col-12 sm-col-4 px1 mb2">
+        {% for post in collections.video limit:1 %}
+        <article class="mb2 mx2">
+            <amp-youtube data-videoid="{{ post.data.videoId }}" layout="responsive" width="480" height="270" dock></amp-youtube>
+            <h1 class="h3 mb1"><a href="{{ post.url }}">{{ post.data.title }}</a></h1>
+            <p class="h4 olive bold mt0 mb1">{{ post.data.author.name }}</p>
+            <p class="gray m0">{{ post.templateContent | strip_html }}</p>
         </article>
         {% endfor %}
     </div>
-    <div class="col col-12 lg-col-4 px2 mb2">
-        <article class="mb2 mx2">
-            <amp-youtube data-videoid="3e-jU-ZEfl8" layout="responsive" width="480" height="270" loop></amp-youtube>
-            <h1 class="h3 mb1">Odading Mang Oleh</h1>
-            <p class="gray"><i>Rasanya, seperti Anda menjadi Iron Man... Anj*ng banget.</i></p>
-        </article>
+</div>
+
+<!--Video Section-->
+<div class="clearfix mx2 mt2">
+    <div class="col col-12 mb2">
+        <div class="mb2">
+            <p class="h3 bold olive mt0 mb0"><a href="/video">Video Terbaru</a></p>
+            <hr style="border: 1px solid #3D9970;">
+        </div>
+        <div id="videocarousel" class="flex items-start mxn1">
+            {% for item in collections.video offset:1 limit: 10 %}
+            <article class="inline px1">
+                <a href="{{ item.url }}"><amp-img src="{{ item.data.image }}" layout="fixed" width="256" height="144" class="rounded"></amp-img></a>
+                <h1 class="h5 mb1 mr2" style="white-space: normal;"><a href="{{ item.url }}">{{ item.data.title }}</a></h1>
+                <p class="h5 olive bold">{{ item.data.author.name }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!--Articles Section-->
+<div class="clearfix mxn1 mt2">
+    <div class="col col-12 sm-col-8 px1 mb2">
+
+        <!--KAMMI Pusat-->
+        <div class="mb3">
+            <div class="mb2">
+                <p class="h3 bold olive mt0 mb0 px2"><a href="/berita/pusat">Kabar PP KAMMI</a></p>
+                <hr class="mx2" style="border: 1px solid #3D9970;">
+            </div>
+            {% for post in collections.pusat limit:5 %}
+            {% include partials/component/postbox.html %}
+            {% endfor %}
+        </div>
+
+        <!--KAMMI Daerah-->
+        <div>
+            <div class="mb2">
+                <p class="h3 bold olive mt0 mb0 px2"><a href="/berita/daerah">Kabar KAMMI se-Indonesia</a></p>
+                <hr class="mx2" style="border: 1px solid #3D9970;">
+            </div>
+            {% for post in collections.daerah limit:5 %}
+            {% include partials/component/postbox.html %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--News & Advertising Section-->
+    <div class="col col-12 sm-col-4 px1 mb2">
+        <div class="mb2">
+            <div class="mb2 mx2">
+                <p class="h3 bold gray mt0 mb0">Langsiran Media</p>
+                <hr style="border: 1px solid #AAA;">
+                <p class="mb1 mt1 italic gray"><small>Link akan terbuka di jendela baru</small></p>
+            </div>
+            {% for item in news limit:15 %}
+            <article class="mx2 mb2">
+                <h1 class="h4 mt0 mb1"><a href="{{ item.link }}" target="_blank" rel="nofollow">{{ item.title }}</a></h1>
+                <p class="gray mt0 mb2"><small class="italic"><a href="{{ item.source.href }}" target="_blank" rel="nofollow">{{ item.source.title }}</a> | {{ item.published | dateReadable }}</small></p>
+            </article>
+            {% endfor %}
+        </div>
     </div>
 </div>

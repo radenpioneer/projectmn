@@ -1021,21 +1021,21 @@ template {
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: local('Cardo Italic'), local('Cardo-Italic'), url(https://fonts.gstatic.com/s/cardo/v12/wlpxgwjKBV1pqhv93IQ.ttf) format('truetype');
+  src: local('Cardo Italic'), local('Cardo-Italic'), url(https://fonts.gstatic.com/s/cardo/v13/wlpxgwjKBV1pqhv93IQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Cardo';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Cardo'), local('Cardo-Regular'), url(https://fonts.gstatic.com/s/cardo/v12/wlp_gwjKBV1pqiv_.ttf) format('truetype');
+  src: local('Cardo'), local('Cardo-Regular'), url(https://fonts.gstatic.com/s/cardo/v13/wlp_gwjKBV1pqiv_.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Cardo';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Cardo Bold'), local('Cardo-Bold'), url(https://fonts.gstatic.com/s/cardo/v12/wlpygwjKBV1pqhND-aQR.ttf) format('truetype');
+  src: local('Cardo Bold'), local('Cardo-Bold'), url(https://fonts.gstatic.com/s/cardo/v13/wlpygwjKBV1pqhND-aQR.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Epilogue';
@@ -1163,7 +1163,7 @@ img {
 #contentBody {
   font-family: var(--body-font);
 }
-#contentBody p {
+#contentBody p, #contentBody ol, #contentBody ul {
   font-size: 1.25rem;
   line-height: 1.75rem;
   word-break: break-word;
@@ -1182,12 +1182,12 @@ img {
   -webkit-box-decoration-break: clone;
 }
 
-#videoboxTitle {
-  bottom: 0;
-  left: 0;
-  line-height: 2.25rem;
+#videocarousel {
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-#videoboxTitle span {
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+#videocarousel::-webkit-scrollbar {
+  display: none;
 }

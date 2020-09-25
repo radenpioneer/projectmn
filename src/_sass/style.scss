@@ -42,7 +42,7 @@ img {
 
 #contentBody {
     font-family: var(--body-font);
-    p {
+    p, ol, ul {
         font-size: 1.25rem;
         line-height: 1.75rem;
         word-break: break-word;
@@ -64,12 +64,12 @@ img {
     }
 }
 
-#videoboxTitle {
-    bottom: 0;
-    left: 0;
-    line-height: 2.25rem;
-    span {
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
+#videocarousel {
+    overflow: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
     }
 }
