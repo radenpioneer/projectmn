@@ -3,7 +3,7 @@ module.exports = function(eleventyConfig) {
         'dateReadable', require('./dateReadable')
     )
     eleventyConfig.addFilter(
-        'replaceImgwithAmp', require('./replaceImgWithAmp')
+        'extractImgFromP', require('./extractImgFromP')
     )
     eleventyConfig.addFilter(
         'sanitizeContent', require('./sanitizeContent')

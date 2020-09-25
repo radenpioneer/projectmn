@@ -8,27 +8,9 @@ module.exports = function(eleventyConfig) {
             output: 'dist'
         },
         imageOptimization: {
-            urlPath: '/img/optimized/'
+            urlPath: '/img/o/'
         },
         validation: false
-    })
-    eleventyConfig.addCollection('pusat', function(collection) {
-        return collection.getFilteredByTag('pusat')
-            .sort(function(a, b) {
-                return b.data.publishDate - a.data.publishDate
-            })
-    })
-    eleventyConfig.addCollection('daerah', function(collection) {
-        return collection.getFilteredByTag('daerah')
-            .sort(function(a, b) {
-                return b.data.publishDate - a.data.publishDate
-            })
-    })
-    eleventyConfig.addCollection('video', function(collection) {
-        return collection.getFilteredByTag('video')
-            .sort(function(a, b) {
-                return b.data.publishDate - a.data.publishDate
-            })
     })
     eleventyConfig.addPlugin(typeset({
         disable: ['ligatures', 'hyphenate']

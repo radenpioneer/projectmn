@@ -17,7 +17,7 @@ layout: layout/layout
         </div>
         <div id="contentBody" class="col col-12 overflow-hide">
             <div class="p2">
-                {{ content | sanitizeContent }}
+                {{ content | extractImgFromP | sanitizeContent }}
             </div>
         </div>
     </section>
